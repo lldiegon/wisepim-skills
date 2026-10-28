@@ -4,14 +4,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-TOOLS = {
-    "wisepim_list_projects", "wisepim_search_products", "wisepim_get_product",
-    "wisepim_analyze_quality", "wisepim_get_filter_fields", "wisepim_build_filter",
-    "wisepim_get_settings", "wisepim_list_prompts", "wisepim_get_prompt",
-    "wisepim_get_analytics", "wisepim_get_suggestions", "wisepim_preview_action",
-    "wisepim_preview_changes", "wisepim_preview_settings", "wisepim_preview_prompt",
-    "wisepim_get_change", "wisepim_apply_changes", "wisepim_get_task",
-}
+TOOLS = set(json.loads((ROOT / "tools.json").read_text())["tools"])
 
 
 def validate(root=ROOT):
