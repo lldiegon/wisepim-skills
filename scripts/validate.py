@@ -15,6 +15,7 @@ def validate(root=ROOT):
         assert re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", folder.name), folder.name
         path = folder / "SKILL.md"
         text = path.read_text()
+        assert not re.search(r"\b(?:WisePIM|Wisepim)\b", text), f"Use WISEPIM branding: {path}"
         front = re.match(r"\A---\nname: ([^\n]+)\ndescription: ([^\n]+)\n---\n", text)
         assert front and front[1] == folder.name and len(front[2]) <= 1024, path
         assert len(text) < 20000, f"Move conditional detail into references: {path}"
@@ -27,6 +28,7 @@ def validate(root=ROOT):
             if entry.is_file():
                 assert entry.suffix == ".md" or entry.name == "openai.yaml", entry
                 assert entry.stat().st_size <= 100000, entry
+                assert not re.search(r"\b(?:WisePIM|Wisepim)\b", entry.read_text()), f"Use WISEPIM branding: {entry}"
         names.add(folder.name)
     scenarios = json.loads((root / "evals/scenarios.json").read_text())["scenarios"]
     assert len({s["id"] for s in scenarios}) == len(scenarios), "Duplicate scenario IDs"

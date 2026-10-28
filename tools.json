@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "source": "WisePIM MCP tool contract; availability requires deployed matching service and granted scopes.",
+  "source": "WISEPIM MCP tool contract; availability requires deployed matching service and granted scopes.",
   "tools": [
     "wisepim_analyze_quality",
     "wisepim_apply_changes",
@@ -21,6 +21,7 @@
     "wisepim_get_prompt",
     "wisepim_get_seo_performance",
     "wisepim_get_settings",
+    "wisepim_get_setup_status",
     "wisepim_get_suggestions",
     "wisepim_get_task",
     "wisepim_get_taxonomy",
