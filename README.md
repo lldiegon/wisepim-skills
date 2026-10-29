@@ -24,7 +24,7 @@ Seventeen public workflows for product information management in Claude, ChatGPT
 
 ## Use and distribution
 
-Each `skills/<name>/SKILL.md` is a standalone workflow. These instructions require the matching deployed WISEPIM MCP tools and explicit account permissions. Installing instructions alone does not connect an account, deploy a service or establish a public directory listing. `tools.json` records the reviewed tool-name contract.
+Each `skills/<name>/SKILL.md` is a standalone workflow. These instructions require the matching deployed WISEPIM MCP tools and explicit account permissions. Installing instructions alone does not connect an account, deploy a service or establish a public directory listing. `tools.json` records the reviewed 53-tool contract. Catalog jobs use five separate typed estimate/preview/start families, and consequential execution uses twelve operation-specific tools. No generic execution dispatcher or runtime job-schema discovery is required.
 
 The [Claude package](https://github.com/lldiegon/wisepim-claude-plugin) and [ChatGPT package](https://github.com/lldiegon/wisepim-chatgpt-plugin) vendor a clean reviewed revision with source commit and file hashes. Edit canonical skills here, then rebuild those packages. The service is hosted from the private WISEPIM frontend repository; Django remains authoritative for identity, permissions, approvals and native execution.
 
@@ -38,6 +38,7 @@ Catalog-job budgets are ceilings on native estimates, not guarantees of final sp
 
 ```sh
 python3 scripts/validate.py
+python3 -m unittest discover -s tests -v
 ```
 
 `evals/scenarios.json` contains synthetic workflow behavior cases, including cross-project denial, missing tools, hostile evidence, approval, budgets, stale receipts and truthful outcomes. Static validation is not a live model/provider test. Keep credentials, customer data, internal listing strategy and private submission materials outside public source and archives. See [SECURITY.md](SECURITY.md) for reporting vulnerabilities.
